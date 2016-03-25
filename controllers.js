@@ -1,10 +1,14 @@
-weatherApp.controller('homeController', ['$scope', 'svcWeatherData', function($scope, svcWeatherData) {
+weatherApp.controller('homeController', ['$scope', 'svcWeatherData', '$location',  function($scope, svcWeatherData, $location) {
     
     $scope.city = svcWeatherData.city;
     
     $scope.$watch('city', function() {
         svcWeatherData.city = $scope.city;
     })
+    
+    $scope.submit = function() {
+        $location.path('/forecast/3');
+    }
     
 }]);
 
